@@ -1,56 +1,108 @@
-# Life Manager — Kurulum Talimatları
+# Life Manager
 
-Bu paket şu ana kadar hazırlanan kısmı içerir: **proje iskeleti, tema sistemi, Ana Sayfa, Görevler ve Finans modülleri, Takvim (temel), Profil (temel)**. Finansın grafik derinliği, bildirimlerin native ayarları ve Takvim/Profil'in geri kalan detayları bir sonraki adımlarda tamamlanacak.
+Flutter ile geliştirilmiş, günlük yaşamı daha düzenli bir şekilde yönetmeye yardımcı olan kişisel yaşam yönetimi uygulaması.
 
-## 1. Projeyi kendi bilgisayarına aç
-Bu zip'i istediğin bir klasöre çıkar (örn. `life_manager/`).
+Life Manager; günlük yapılacaklarınızı, gelir ve giderlerinizi, randevularınızı ve önemli planlarınızı tek bir uygulama üzerinden takip etmenizi sağlar.
 
-## 2. Native platform klasörlerini oluştur
-Benim ortamımda Flutter SDK kurulu olmadığı için `android/` ve `ios/` klasörlerini oluşturamadım. Kendi bilgisayarında, proje klasörünün içinde şunu çalıştır:
+## Özellikler
+
+### Görev Yönetimi
+
+* Günlük yapılacaklar listesi oluşturma
+* Görev ekleme ve düzenleme
+* Tamamlanan görevleri takip etme
+
+### Gelir ve Gider Takibi
+
+* Gelirleri kaydetme
+* Giderleri ve harcamaları takip etme
+* Kişisel bütçeyi düzenli bir şekilde görüntüleme
+
+### Takvim ve Randevu Yönetimi
+
+* Randevuları düzenleme
+* Önemli tarihleri takip etme
+* Günlük planlamaları görüntüleme
+
+### Profil ve Kişiselleştirme
+
+* Kullanıcı profili
+* Uygulama ayarları
+* Modern ve kullanıcı dostu arayüz
+
+## Kullanılan Teknolojiler
+
+* Flutter
+* Dart
+* Material Design
+* Android
+
+## APK ile Çalıştırma
+
+Uygulamanın hazır APK dosyasını indirerek Android cihazınızda doğrudan çalıştırabilirsiniz.
+
+1. Bu repository'nin **Releases** bölümüne gidin.
+2. En son sürümde bulunan `.apk` dosyasını indirin.
+3. APK dosyasını Android cihazınıza aktarın.
+4. APK dosyasını açarak uygulamayı yükleyin.
+
+> **Not:** Android, Google Play Store dışından indirilen uygulamaları yüklemek için izin isteyebilir.
+
+## Kaynak Koddan Çalıştırma
+
+### Gereksinimler
+
+* Flutter SDK
+* Dart SDK
+* Android Studio veya Visual Studio Code
+* Android Emulator veya fiziksel Android cihaz
+
+### Kurulum
+
+Repository'yi klonlayın:
 
 ```bash
-cd life_manager
-flutter create . --platforms=android,ios --org com.example
+git clone https://github.com/ALPERSERHAT5/Life_Manager.git
 ```
 
-Bu komut mevcut `lib/` ve `pubspec.yaml` dosyalarına dokunmaz, sadece eksik native klasörleri ekler.
+Proje klasörüne girin:
 
-## 3. Paketleri yükle
+```bash
+cd Life_Manager
+```
+
+Gerekli paketleri yükleyin:
+
 ```bash
 flutter pub get
 ```
 
-## 4. Android bildirim izinleri (önemli)
-`android/app/src/main/AndroidManifest.xml` dosyasına, `<application>` etiketinin **dışına**, `<manifest>` içine şunları ekle:
+Uygulamayı çalıştırın:
 
-```xml
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-<uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
-<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-```
-
-`minSdkVersion`'ı en az **23** yap (`android/app/build.gradle` içinde `minSdkVersion 23`).
-
-## 5. Çalıştır
 ```bash
 flutter run
 ```
 
-## Şu ana kadar tamamlanan özellikler
-- ✅ Dark/Light tema (Material 3, Poppins font, prompttaki renk paleti)
-- ✅ Animasyonlu bottom navigation (5 sekme)
-- ✅ Ana Sayfa: dinamik karşılama, tarih, 6 istatistik kartı (fade+scale animasyonlu), bugünkü görevler
-- ✅ Görevler: ekleme (başlık, açıklama, tarih, saat, öncelik, kategori, tekrar), tamamlama, silme (kaydırarak), filtreleme
-- ✅ Bildirimler: 15 dk önce hatırlatma, tam saatinde alarm, 30 dk sonra tekrar uyarı, 1 saat sonra son hatırlatma (görev tamamlanınca otomatik iptal)
-- ✅ Finans: gelir/gider ekleme, bakiye kartı, kategoriye göre pasta grafik, işlem listesi
-- ✅ Takvim: aylık grid görünüm, günlere etkinlik ekleme, renkli nokta göstergeleri
-- ✅ Profil: tema değiştirme, başarı oranı, ayarlar listesi (yer tutucu)
-- ✅ Tüm veriler Hive ile cihazda kalıcı olarak saklanıyor
+## APK Oluşturma
 
-## Sırada ne var (istersen devam edelim)
-- Finans: haftalık/aylık/yıllık çizgi ve çubuk grafikler, istatistikler ekranı
-- Takvim: haftalık/günlük görünüm, randevu için harita altyapısı
-- Profil: gerçek profil fotoğrafı seçme, PIN/biyometrik giriş entegrasyonu, yedekleme/dışa aktarma
-- Lottie başarı animasyonu (görev tamamlanınca)
-- Firebase Authentication + Cloud Firestore (opsiyonel senkronizasyon)
+Kendi APK dosyanızı oluşturmak için:
+
+```bash
+flutter build apk --release
+```
+
+Oluşturulan APK genellikle şu klasörde bulunur:
+
+```text
+build/app/outputs/flutter-apk/app-release.apk
+```
+
+## Geliştirici
+
+**Serhat Alper**
+
+Bu proje, Flutter öğrenme ve mobil uygulama geliştirme sürecimin bir parçası olarak geliştirilmiştir.
+
+## Lisans
+
+Bu proje eğitim ve kişisel geliştirme amacıyla oluşturulmuştur.
