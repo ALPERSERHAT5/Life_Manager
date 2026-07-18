@@ -1,0 +1,54 @@
+name: life_manager
+description: Modern, premium kişisel yaşam yönetim uygulaması.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management & routing
+  flutter_riverpod: ^2.5.1
+  go_router: ^14.2.0
+
+  # Local storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.3
+
+  # Notifications & alarms
+  flutter_local_notifications: ^17.2.2
+  timezone: ^0.9.4
+
+  # UI & UX
+  google_fonts: ^6.2.1
+  lottie: ^3.1.2
+  fl_chart: ^0.68.0
+  intl: ^0.19.0
+  uuid: ^4.4.0
+
+  cupertino_icons: ^1.0.8
+  image_picker: ^1.2.3
+  local_auth: 2.3.0
+  share_plus: 12.0.2
+  path_provider: ^2.1.6
+  crypto: ^3.0.7
+  file_picker: ^8.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.11
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+dependency_overrides:
+  flutter_plugin_android_lifecycle: 2.0.22
+
+

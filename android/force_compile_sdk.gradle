@@ -1,0 +1,9 @@
+subprojects {
+    afterEvaluate {
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 36
+            }
+        }
+    }
+}
